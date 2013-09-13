@@ -17,10 +17,6 @@ If you find this software useful. I'd love to hear from you, drop me a line at [
 
 It's simple. It *should* be fast. It *should* scale well. (I haven't benchmarked it)
 
-It comes in two flavours:
-1. A single configuration file for people who don't like copying lots of files.
-2. A configuration file and supporting files for people who like tidy code.
-
 ## Requirements
 * Openresty
 * <s>[nginx](http://wiki.nginx.org/Main)</s>
@@ -34,7 +30,11 @@ It comes in two flavours:
 
 It's pretty damn simple.
 
-### Shorten a URL
+### Starting the server
+
+`nginx -p /path/to/simpleshortener`
+
+### Shortening a URL
 
 Pass your URL as the parameter "url" to /shorten, for example:
 
@@ -44,6 +44,6 @@ And out pops the short url:
 
 `http://localhost/28lK`
 
-### Expand a URL
+### Expanding a URL
 
 Open the short url in your browser. Ta da!
