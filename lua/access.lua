@@ -1,0 +1,14 @@
+--local prefixes = {"http://somedomain.com", "http://someotherdomain.com"};
+--local ok = false;
+--
+--for k, v in ipairs(prefixes) do
+--    tmp = string.find(ngx.var.arg_url, v);
+--    if (1 == tmp) then
+--        ok = true;
+--        break;
+--    end
+--end
+--
+--if (false == ok) then
+--    return ngx.exit(403);
+--end
