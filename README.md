@@ -18,17 +18,23 @@ If you find this software useful. I'd love to hear from you, drop me a line at [
 It's simple. It *should* be fast. It *should* scale well. (I haven't benchmarked it)
 
 ## Requirements
-* Openresty
-* <s>[nginx](http://wiki.nginx.org/Main)</s>
 * [redis](redis.io)
-* <s>[redis2-nginx-module](http://wiki.nginx.org/HttpRedis2Module)</s>
-* <s>[lua-nginx-module](https://github.com/chaoslawful/lua-nginx-module)</s>
-* <s>[set-misc-nginx-module](https://github.com/agentzh/set-misc-nginx-module)</s>
-* <s>[ngx_devel_kit](https://github.com/simpl/ngx_devel_kit)</s>
+* [openresty](http://openresty.org)
 
-## Usage
+Or instead of openresty:
 
-It's pretty damn simple.
+* [nginx](http://wiki.nginx.org/Main)
+* [redis2-nginx-module](http://wiki.nginx.org/HttpRedis2Module)
+* [lua-nginx-module](https://github.com/chaoslawful/lua-nginx-module)
+* [set-misc-nginx-module](https://github.com/agentzh/set-misc-nginx-module)
+* [ngx\_devel\_kit](https://github.com/simpl/ngx_devel_kit)
+
+## Getting Started
+
+### Installation
+
+1. Extract the [zip](https://github.com/AlexChittock/SimpleShortener/archive/master.zip) somewhere.
+2. Modify the first line of `nginx.conf` to use the account you want. For example: `user www staff;`
 
 ### Starting the server
 
