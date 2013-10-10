@@ -81,4 +81,4 @@ ngx.location.capture("/save",
 
 --ngx.say("http://" .. ngx.var.host .. "/" .. id)
 
-ngx.say("numer.gy/" .. id)
+ngx.say("myhost.com/" .. id)
