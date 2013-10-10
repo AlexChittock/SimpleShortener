@@ -50,6 +50,8 @@ And out pops the short url:
 
 `http://localhost/28lK`
 
+Note that you can change the number of characters in the URL changing the number of 9 in line 60 of pack.lua.
+
 ### Expanding a URL
 
 Open the short url in your browser. Ta da!
