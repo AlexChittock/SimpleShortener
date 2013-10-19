@@ -1,6 +1,15 @@
 -- Init
 local parser = require "redis.parser"
 
+function url_decode(str)
+  str = string.gsub (str, "+", " ")
+  str = string.gsub (str, "%%(%x%x)",
+      function(h) return string.char(tonumber(h,16)) end)
+  str = string.gsub (str, "\r\n", "\n")
+  return str
+end
+
+
 basen = function(n)
     local digits = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
     local t = {}
@@ -18,6 +27,7 @@ local hash = ngx.md5(ngx.var.arg_url);
 local res = ngx.location.capture("/lookup", {
     args = { lookup = "*:"..hash }
 });
+
 local results, type = parser.parse_replies(res.body, 2);
 
 if not (table.getn(results[2][1]) == 0) then
@@ -33,6 +43,7 @@ end
 -- We don't, so let's add it
 
 res = ngx.location.capture("/count");
+
 results, type = parser.parse_replies(res.body, 2)
 
 if (nil == results[2][1]) then
@@ -46,10 +57,11 @@ local id
 
 math.randomseed(results[2][1] + 1)
 while not found do
-    id = basen(math.random(99999999999999999))
+    id = basen(math.random(999999999))
     res = ngx.location.capture("/lookup", {
         args = { lookup = "/" .. id .. ":*" }
     });
+    
     results, type = parser.parse_replies(res.body, 2)
     found = table.getn(results[2][1]) == 0
 end
@@ -60,11 +72,13 @@ ngx.location.capture("/save",
     {
         args = {
             id = "/"..tostring(id)..":"..ngx.md5(ngx.var.arg_url),
-            url = ngx.var.arg_url
+            url = url_decode(ngx.var.arg_url)
         }
     }
 )
 
 -- Present to the user
 
-ngx.say("http://" .. ngx.var.host .. "/" .. id)
+--ngx.say("http://" .. ngx.var.host .. "/" .. id)
+
+ngx.say("myhost.com/" .. id)

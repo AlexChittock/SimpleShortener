@@ -1,4 +1,4 @@
---local prefixes = {"http://somedomain.com", "http://someotherdomain.com"};
+--local prefixes = {"", ""};
 --local ok = false;
 --
 --for k, v in ipairs(prefixes) do
